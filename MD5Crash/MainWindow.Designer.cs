@@ -49,7 +49,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tb_crashCount = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.lv_res = new System.Windows.Forms.ListView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lb_res = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -119,6 +120,8 @@
             // cb_algorithm
             // 
             this.cb_algorithm.FormattingEnabled = true;
+            this.cb_algorithm.Items.AddRange(new object[] {
+            "MD5"});
             this.cb_algorithm.Location = new System.Drawing.Point(256, 82);
             this.cb_algorithm.Name = "cb_algorithm";
             this.cb_algorithm.Size = new System.Drawing.Size(96, 20);
@@ -141,6 +144,7 @@
             this.btn_start.TabIndex = 10;
             this.btn_start.Text = "开始";
             this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // btn_stop
             // 
@@ -151,13 +155,15 @@
             this.btn_stop.TabIndex = 11;
             this.btn_stop.Text = "停止";
             this.btn_stop.UseVisualStyleBackColor = true;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // rb_output
             // 
             this.rb_output.Location = new System.Drawing.Point(371, 81);
             this.rb_output.Name = "rb_output";
             this.rb_output.ReadOnly = true;
-            this.rb_output.Size = new System.Drawing.Size(296, 357);
+            this.rb_output.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rb_output.Size = new System.Drawing.Size(296, 358);
             this.rb_output.TabIndex = 12;
             this.rb_output.Text = "";
             // 
@@ -228,21 +234,31 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "碰撞数量：";
             // 
-            // lv_res
+            // label11
             // 
-            this.lv_res.HideSelection = false;
-            this.lv_res.Location = new System.Drawing.Point(12, 186);
-            this.lv_res.Name = "lv_res";
-            this.lv_res.Size = new System.Drawing.Size(340, 252);
-            this.lv_res.TabIndex = 21;
-            this.lv_res.UseCompatibleStateImageBehavior = false;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(256, 36);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "ver. 1.0";
+            // 
+            // lb_res
+            // 
+            this.lb_res.FormattingEnabled = true;
+            this.lb_res.ItemHeight = 12;
+            this.lb_res.Location = new System.Drawing.Point(15, 183);
+            this.lb_res.Name = "lb_res";
+            this.lb_res.Size = new System.Drawing.Size(337, 256);
+            this.lb_res.TabIndex = 23;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 450);
-            this.Controls.Add(this.lv_res);
+            this.Controls.Add(this.lb_res);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.tb_crashCount);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -265,7 +281,8 @@
             this.Controls.Add(this.tb_roundCount);
             this.Controls.Add(this.label1);
             this.Name = "MainWindow";
-            this.Text = "MD5Crash by BackRunner";
+            this.Text = "HashCrash by BackRunner";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,7 +311,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_crashCount;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListView lv_res;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListBox lb_res;
     }
 }
 
